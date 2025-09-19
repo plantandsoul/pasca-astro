@@ -2,6 +2,13 @@
 
 To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
+## 🚀 Getting Started
+
+1. Clone the repository
+2. Install dependencies with `pnpm install`
+3. Clone the `.env` files with `cp .env.dev .env` and fill in the variables
+4. Start the development server with `pnpm dev`
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
