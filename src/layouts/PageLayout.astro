@@ -1,0 +1,84 @@
+---
+import HeaderNav from '../components/HeaderNav';
+import pascaLogo from '../assets/pasca-logo.png';
+import SiteLayout from './SiteLayout.astro';
+import type { ComponentProps } from 'astro/types';
+
+type Props = ComponentProps<typeof SiteLayout>;
+---
+
+<SiteLayout {...Astro.props}>
+  <div id="container">
+    <div id="background"></div>
+    <header>
+      <a href="/"
+        ><img src={pascaLogo.src} width="95" height="95" alt="PASCA homepage" /></a
+      >
+      <div id="title">
+        <span>Plant</span>
+        <span>& <span>Soul</span></span>
+        <span>California</span>
+      </div>
+      <HeaderNav />
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>
+        &copy; 1999 - 2024 Plant & Soul California (PASCA). All rights reserved.
+      </p>
+    </footer>
+  </div>
+</SiteLayout>
+
+<style>
+	#background {
+		background-color: #fcfaf6;
+		height: 100%;
+		pointer-events: none;
+		position: fixed;
+		 left: 0;
+		 top: 0;
+		 width: 100%;
+		z-index: -1;
+	}
+
+	#container {
+		--clr-primary: #008243;
+		--clr-secondary: #f36daf;
+		--clr-tertiary: #f5b224;
+
+		font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		& > :where(header, main, footer) {
+			width: 100%;
+			max-width: min(calc(150px + 65%), calc(100vw - 4rem));
+			min-width: 250px;
+		}
+	}
+
+	header {
+		border-bottom: 5px solid #000;
+		display: flex;
+		padding: 2rem 0 0;
+
+		#title {
+			display: flex;
+			flex-direction: column;
+			font-size: 2rem;
+			line-height: 0.85;
+			justify-content: center;
+			font-weight: 800;
+		}
+
+    & > nav {
+      margin-left: auto;
+      align-self: flex-end;
+    }
+	}
+</style>
