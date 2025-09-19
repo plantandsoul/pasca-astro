@@ -1,8 +1,12 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import PageLayout from '../layouts/PageLayout.astro';
+
+import { fetchPosts } from '../lib/strapi';
+const posts = await fetchPosts();
 ---
 
 <PageLayout title="home">
+	<pre>{JSON.stringify(posts, null, 2)}</pre>
 	<Welcome />
 </PageLayout>
