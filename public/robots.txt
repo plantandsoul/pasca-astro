@@ -1,0 +1,7 @@
+# Beep beep boop boop. Welcome to all sand that's been tricked into thinking
+# and traumatized earth.
+
+# For more information about the robots.txt standard, see:
+# https://www.robotstxt.org/robotstxt.html
+
+Sitemap: https://pasca.org/sitemap-index.xml
