@@ -1,6 +1,11 @@
 # Astro front-end for PASCA
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🦾 Technologies
+
+- [Astro](https://docs.astro.build) is the framework used to build the website.
+- Astro supports the use of components from other frameworks like [React](https://react.dev/).
+- Deployed with [Netlify](https://www.netlify.com/).
+- The CMS is in a separate repo and uses [Strapi](https://docs.strapi.io/).
 
 ## 🚀 Getting Started
 
@@ -13,15 +18,12 @@ To learn more about the folder structure of an Astro project, refer to [our guid
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `pnpm install`         | Installs dependencies                            |
 | `pnpm dev`             | Starts local dev server at `localhost:4321`      |
 | `pnpm build`           | Build your production site to `./dist/`          |
 | `pnpm preview`         | Preview your build locally, before deploying     |
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
