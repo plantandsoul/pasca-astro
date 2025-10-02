@@ -1,32 +1,30 @@
 ---
-import HeaderNav from '../components/HeaderNav';
-import pascaLogo from '../assets/pasca-logo.png';
+import PageHeader from '../components/PageHeader/index.tsx';
 import SiteLayout from './SiteLayout.astro';
 import type { ComponentProps } from 'astro/types';
 
 type Props = ComponentProps<typeof SiteLayout>;
+
+// TODO(culi): get menu options from Strapi
+const DEFAULT_NAV_ITEMS = [
+  { href: '/about', label: 'about' },
+  { href: '/programs', label: 'programs' },
+  { href: '/blog', label: 'blog' },
+  { href: '/contact', label: 'contact' },
+  { href: '/donate', label: 'donate' },
+];
 ---
 
 <SiteLayout {...Astro.props}>
   <div id="container">
-    <div id="background"></div>
-    <header>
-      <a href="/"
-        ><img src={pascaLogo.src} width="95" height="95" alt="PASCA homepage" /></a
-      >
-      <div id="title">
-        <span>Plant</span>
-        <span>& <span>Soul</span></span>
-        <span>California</span>
-      </div>
-      <HeaderNav />
-    </header>
+    <div id="background" />
+		<PageHeader client:load navItems={DEFAULT_NAV_ITEMS} />
     <main>
       <slot />
     </main>
     <footer>
       <p>
-        &copy; 1999 - 2024 Plant & Soul California (PASCA). All rights reserved.
+        &copy; 1999 - three thousand and eight Plant & Soul California (PASCA). All rights deserved.
       </p>
     </footer>
   </div>
@@ -57,24 +55,5 @@ type Props = ComponentProps<typeof SiteLayout>;
 			min-width: 250px;
 		}
 	}
-
-	header {
-		border-bottom: 5px solid #000;
-		display: flex;
-		padding: 2rem 0 0;
-
-		#title {
-			display: flex;
-			flex-direction: column;
-			font-size: 2rem;
-			line-height: 0.85;
-			justify-content: center;
-			font-weight: 800;
-		}
-
-    & > nav {
-      margin-left: auto;
-      align-self: flex-end;
-    }
-	}
 </style>
+
