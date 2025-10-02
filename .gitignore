@@ -13,6 +13,13 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# WRONG LOCKFILE!
+bun.lock
+deno.lock
+package-lock.json
+#pnpm-lock.yaml
+yarn.lock
+
 # environment variables
 .env
 .env.production
@@ -22,3 +29,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Local Netlify folder
+.netlify
