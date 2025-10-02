@@ -1,5 +1,5 @@
 .header {
-  border-bottom: 5px solid #000;
+  border-bottom: 5px solid var(--clr-line);
   display: flex;
   padding: 2rem 0 0;
   width: 100%;
@@ -37,15 +37,14 @@
   & nav a {
     color: unset;
     font-size: 1.5rem;
-    text-decoration: underline;
-      text-decoration-color: #0000;
-      text-decoration-thickness: 0px;
-    transition: color 0.15s ease;
+    text-decoration: none;
+    transition: color var(--dur-medium) ease;
 
     &:hover {
       color: var(--clr-secondary);
-      text-decoration-color: #000;
-      text-decoration-thickness: 3px;
+      text-decoration: underline;
+       text-decoration-color: var(--clr-line);
+       text-decoration-thickness: 3px;
     }
   }
 }
@@ -62,7 +61,7 @@
   margin: 0;
   height: var(--height);
    min-width: var(--height);
-  transition: right 0.15s ease-out;
+  transition: right var(--dur-medium) ease-out;
   position: sticky;
    right: 7%;
    top: 0;
@@ -71,11 +70,11 @@
     right: 27%;
 
     & .ham {
-      background: #0000;
+      background: #1110;
 
       &::before,
       &::after {
-        background: #000;
+        background: var(--clr-line);
         top: 0;
         bottom: 0;
       }
@@ -89,13 +88,13 @@
 & .ham,
 & .ham::before,
 & .ham::after {
-  background: #000;
+  background: var(--clr-line);
   border-radius: 0.15rem;
   height: var(--thickness);
   position: absolute;
-    left: 5%;
-  transition: all 0.3s ease;
-  transition-property: bottom, top, transform;
+   left: 5%;
+  transition: all var(--dur-slow) ease;
+   transition-property: bottom, top, transform;
   width: 90%;
 }
 
@@ -120,7 +119,7 @@
 aside[popover] {
   background: var(--clr-fg);
   border: none;
-   border-left: 5px solid #000;
+   border-left: 5px solid var(--clr-line);
   margin-right: 0;
   width: min-content;
 

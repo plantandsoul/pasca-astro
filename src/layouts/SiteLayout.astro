@@ -36,19 +36,26 @@ const { title } = Astro.props;
 		/*** ===================== */
 		/** === ATOMIC TOKENS === **/
 		/* ===================== ***/
+		/* only meant to be used in the SEMANTIC TOKENS variables */
+		--color-obsidian: #111;
+		--color-datura: #fdfdfd;
 		--color-fuschia: #f36daf;
 		--color-marigold: #f5b224;
 		--color-pine: #008243;
 		--color-straw: #fcfaf6;
-		--color-datura: #fdfdfd;
 
 		/*** ======================= */
 		/** === SEMANTIC TOKENS === **/
 		/* ======================= ***/
+		/* meant to be used throughout the codebase */
 		--clr-bg: var(--color-straw); /* background */
 		--clr-fg: var(--color-datura); /* foreground */
+		--clr-line: var(--color-obsidian); /* borders, etc */
 		--clr-primary: var(--color-pine);
 		--clr-secondary: var(--color-fuschia);
 		--clr-tertiary: var(--color-marigold);
+
+		--dur-medium: 0.15s;
+		--dur-slow: 0.15s;
 	}
 </style>
