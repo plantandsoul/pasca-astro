@@ -34,7 +34,7 @@ type Props = ComponentProps<typeof SiteLayout>;
 
 <style>
 	#background {
-		background-color: #fcfaf6;
+		background-color: var(--clr-bg);
 		height: 100%;
 		pointer-events: none;
 		position: fixed;
@@ -45,10 +45,6 @@ type Props = ComponentProps<typeof SiteLayout>;
 	}
 
 	#container {
-		--clr-primary: #008243;
-		--clr-secondary: #f36daf;
-		--clr-tertiary: #f5b224;
-
 		font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
 		height: 100%;
 		display: flex;
