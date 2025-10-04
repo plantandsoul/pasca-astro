@@ -1,0 +1,138 @@
+.header {
+  border-bottom: 5px solid var(--clr-line);
+  display: flex;
+  padding: 2rem 0 0;
+  width: 100%;
+   max-width: min(calc(150px + 65%), calc(100vw - 4rem));
+   min-width: 250px;
+
+  &.isOverflowing > nav {
+    user-select: none;
+    visibility: hidden;
+  }
+
+  /*——— Logo and title ———*/
+  & .logo { line-height: 0; }
+
+  & .title {
+    display: flex;
+     flex-direction: column;
+     justify-content: center;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 0.85;
+    margin-bottom: calc(-0.85em / 4);
+    margin-right: 1rem;
+  }
+
+  /*——— Nav section ———*/
+  & .navDesktop {
+    display: flex;
+     align-items: flex-end;
+     gap: 0.5rem;
+    margin-left: auto;
+    position: relative;
+  }
+
+  & nav a {
+    color: unset;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color var(--dur-medium) ease;
+
+    &:hover {
+      color: var(--clr-secondary);
+      text-decoration: underline;
+       text-decoration-color: var(--clr-line);
+       text-decoration-thickness: 3px;
+    }
+  }
+}
+
+/*——— Hamburger button ———*/
+.burger {
+  --height: 40px;
+  --thickness: 5px;
+
+  background: var(--clr-fg);
+  border: none;
+   border-radius: 0.15rem;
+  cursor: pointer;
+  margin: 0;
+  height: var(--height);
+   min-width: var(--height);
+  transition: right var(--dur-medium) ease-out;
+  position: sticky;
+   right: 7%;
+   top: 0;
+
+  &:has(+ *:popover-open) {
+    right: 27%;
+
+    & .ham {
+      background: #1110;
+
+      &::before,
+      &::after {
+        background: var(--clr-line);
+        top: 0;
+        bottom: 0;
+      }
+
+      &::before { transform: rotate(45deg); }
+      &::after { transform: rotate(-45deg); }
+    }
+  }
+}
+
+& .ham,
+& .ham::before,
+& .ham::after {
+  background: var(--clr-line);
+  border-radius: 0.15rem;
+  height: var(--thickness);
+  position: absolute;
+   left: 5%;
+  transition: all var(--dur-slow) ease;
+   transition-property: bottom, top, transform;
+  width: 90%;
+}
+
+.ham {
+  top: calc(50% - var(--thickness) / 2);
+
+  &::before,
+  &::after {
+    content: '';
+    width: 100%;
+    left: 0;
+  }
+  &::before {
+    bottom: calc(var(--height) / 4.5);
+  }
+  &::after {
+    top: calc(var(--height) / 4.5);
+  }
+}
+
+/*——— Mobile menu ———*/
+aside[popover] {
+  background: var(--clr-fg);
+  border: none;
+   border-left: 5px solid var(--clr-line);
+  margin-right: 0;
+  width: min-content;
+
+  &:popover-open {
+    position: fixed;
+     top: 1vh;
+     right: 0;
+    height: 100vh;
+  }
+
+  & nav {
+    display: flex;
+     flex-direction: column;
+    padding: 2rem;
+  }
+}

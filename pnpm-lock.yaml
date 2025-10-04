@@ -35,6 +35,9 @@ importers:
       astro:
         specifier: ^5.13.7
         version: 5.13.7(@netlify/blobs@10.0.11)(@types/node@24.5.1)(jiti@2.6.0)(rollup@4.50.2)(typescript@5.9.2)(yaml@2.8.1)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       react:
         specifier: ^19.1.1
         version: 19.1.1
