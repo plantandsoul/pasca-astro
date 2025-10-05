@@ -6,7 +6,7 @@ import type { ComponentProps } from 'astro/types';
 
 type Props = ComponentProps<typeof SiteLayout>;
 
-const data = await fetchStrapi('global');
+const globalSettings = await fetchStrapi('global');
 
 // TODO(culi): get menu options from Strapi
 const DEFAULT_NAV_ITEMS = [
@@ -27,11 +27,11 @@ const DEFAULT_NAV_ITEMS = [
     </main>
     <footer>
       <p>
-				{data.siteName}
+				{globalSettings?.siteName}
 				<br />
-        {data.streetAddress1}
+        {globalSettings?.streetAddress1}
 				<br />
-        {data.streetAddress2}
+        {globalSettings?.streetAddress2}
       </p>
     </footer>
   </div>

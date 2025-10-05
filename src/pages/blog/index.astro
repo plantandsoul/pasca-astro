@@ -7,7 +7,7 @@ const posts = await fetchStrapi('blog-posts');
 
 <PageLayout title="blog">
   <ul>
-    {posts.map(post => (
+    {posts?.map(post => (
       <li>
         <a href={`/blog/${post.slug}`}>{post.title}</a>
       </li>

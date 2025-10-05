@@ -5,7 +5,7 @@ import { fetchStrapi } from '../../lib/strapi';
 export async function getStaticPaths() {
   const posts = await fetchStrapi('blog-posts?populate=*');
 
-  return posts.map((post) => ({
+  return (posts || []).map((post) => ({
     params: { slug: post.slug },
     props: post,
   }));
