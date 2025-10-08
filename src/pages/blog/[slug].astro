@@ -1,0 +1,19 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { fetchStrapi } from '../../lib/strapi';
+
+export async function getStaticPaths() {
+  const posts = await fetchStrapi('blog-posts?populate=*');
+
+  return (posts || []).map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+};
+
+const post = Astro.props;
+---
+
+<PageLayout title="blog">
+  <pre>{JSON.stringify(post, null, 2)}</pre>
+</PageLayout>

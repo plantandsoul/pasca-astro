@@ -1,9 +1,12 @@
 ---
 import PageHeader from '../components/PageHeader/index.tsx';
+import { fetchStrapi } from '../lib/strapi';
 import SiteLayout from './SiteLayout.astro';
 import type { ComponentProps } from 'astro/types';
 
 type Props = ComponentProps<typeof SiteLayout>;
+
+const globalSettings = await fetchStrapi('global');
 
 // TODO(culi): get menu options from Strapi
 const DEFAULT_NAV_ITEMS = [
@@ -24,7 +27,11 @@ const DEFAULT_NAV_ITEMS = [
     </main>
     <footer>
       <p>
-        &copy; 1999 - three thousand and eight Plant & Soul California (PASCA). All rights deserved.
+				{globalSettings?.siteName}
+				<br />
+        {globalSettings?.streetAddress1}
+				<br />
+        {globalSettings?.streetAddress2}
       </p>
     </footer>
   </div>
@@ -53,6 +60,14 @@ const DEFAULT_NAV_ITEMS = [
 			width: 100%;
 			max-width: min(calc(150px + 65%), calc(100vw - 4rem));
 			min-width: 250px;
+		}
+
+		& > main {
+			flex-grow: 1;
+		}
+
+		& > footer {
+			border-top: 5px solid var(--clr-line);
 		}
 	}
 </style>

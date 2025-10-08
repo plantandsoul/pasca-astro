@@ -44,6 +44,10 @@ const { title } = Astro.props;
 		--color-pine: #008243;
 		--color-straw: #fcfaf6;
 
+		/* https://modernfontstacks.com/#font-stacks */
+		--font-classical-humanist: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
+		--font-transitional: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+
 		/*** ======================= */
 		/** === SEMANTIC TOKENS === **/
 		/* ======================= ***/
@@ -57,5 +61,10 @@ const { title } = Astro.props;
 
 		--dur-medium: 0.15s;
 		--dur-slow: 0.15s;
+
+		--fnt-sans: var(--font-classical-humanist);
+		--fnt-serif: var(--font-transitional);
+
+		font-family: var(--fnt-sans);
 	}
 </style>
