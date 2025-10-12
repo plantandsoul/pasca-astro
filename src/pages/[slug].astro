@@ -1,0 +1,22 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { pascaApiClient } from '../lib/strapi';
+
+export async function getStaticPaths() {
+  const pages = await pascaApiClient.pages.getPages({ populate: '*' })
+    .then(response => response.data.data || [])
+    .catch(() => [])
+  ;
+
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: page,
+  }));
+};
+
+const page = Astro.props;
+---
+
+<PageLayout title="blog">
+  <pre>{JSON.stringify(page, null, 2)}</pre>
+</PageLayout>
