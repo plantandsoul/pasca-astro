@@ -26,25 +26,30 @@
   }
 
   /*——— Nav section ———*/
-  & .navDesktop {
+  & nav {
     display: flex;
      align-items: flex-end;
      gap: 0.5rem;
     margin-left: auto;
     position: relative;
-  }
 
-  & nav a {
-    color: unset;
-    font-size: 1.5rem;
-    text-decoration: none;
-    transition: color var(--dur-medium) ease;
+    & a {
+      color: unset;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: color var(--dur-medium) ease;
 
-    &:hover {
-      color: var(--clr-secondary);
-      text-decoration: underline;
-       text-decoration-color: var(--clr-line);
-       text-decoration-thickness: 3px;
+      &:hover {
+        color: var(--clr-secondary);
+        text-decoration: underline;
+        text-decoration-color: var(--clr-line);
+        text-decoration-thickness: 3px;
+      }
+
+      &[href^="http"] {
+        color: var(--clr-tertiary);
+      }
+
     }
   }
 }
