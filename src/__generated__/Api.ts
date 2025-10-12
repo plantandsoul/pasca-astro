@@ -30,18 +30,6 @@ type BaseNull = (
   | SharedMediaComponent
 )[];
 
-type BaseNull1 = (
-  | SharedSliderComponent
-  | SharedSeoComponent
-  | SharedRichTextComponent
-  | SharedQuoteComponent
-  | SharedMediaComponent
-)[];
-
-type BaseNull1ComponentMapping<Key, Type> = {
-  __component: Key;
-} & Type;
-
 type BaseNullComponentMapping<Key, Type> = {
   __component: Key;
 } & Type;
@@ -90,6 +78,18 @@ type DiscriminatorNull1 = (
 )[];
 
 type DiscriminatorNull1ComponentMapping<Key, Type> = {
+  __component: Key;
+} & Type;
+
+type DiscriminatorNull2 = (
+  | SharedSliderComponent
+  | SharedSeoComponent
+  | SharedRichTextComponent
+  | SharedQuoteComponent
+  | SharedMediaComponent
+)[];
+
+type DiscriminatorNull2ComponentMapping<Key, Type> = {
   __component: Key;
 } & Type;
 
@@ -531,7 +531,7 @@ export interface NavbarItem {
   external_url?: string;
   id?: number;
   internal_url?: string;
-  label?: string;
+  label: string;
   locale?: string;
   localizations?: {
     documentId?: string;
@@ -655,6 +655,7 @@ export interface NavbarItem {
     };
     /** @format date-time */
     publishedAt?: string;
+    sort_weight?: number;
     /** @format date-time */
     updatedAt?: string;
     updatedBy?: {
@@ -664,6 +665,7 @@ export interface NavbarItem {
   };
   /** @format date-time */
   publishedAt?: string;
+  sort_weight?: number;
   /** @format date-time */
   updatedAt?: string;
   updatedBy?: {
@@ -691,11 +693,12 @@ export interface NavbarItemRequest {
     child_navbar_items?: (number | string)[];
     external_url?: string;
     internal_url?: string;
-    label?: string;
+    label: string;
     locale?: string;
     localizations?: (number | string)[];
     /** @example "string or id" */
     parent_navbar_item?: number | string;
+    sort_weight?: number;
   };
 }
 
@@ -1399,13 +1402,25 @@ export interface Topic {
     id?: number;
   }[];
   posts?: {
-    blocks?: BaseNull1 &
+    blocks?: DiscriminatorNull2 &
       (
-        | BaseNull1ComponentMapping<"shared.slider", SharedSliderComponent>
-        | BaseNull1ComponentMapping<"shared.seo", SharedSeoComponent>
-        | BaseNull1ComponentMapping<"shared.rich-text", SharedRichTextComponent>
-        | BaseNull1ComponentMapping<"shared.quote", SharedQuoteComponent>
-        | BaseNull1ComponentMapping<"shared.media", SharedMediaComponent>
+        | DiscriminatorNull2ComponentMapping<
+            "shared.slider",
+            SharedSliderComponent
+          >
+        | DiscriminatorNull2ComponentMapping<"shared.seo", SharedSeoComponent>
+        | DiscriminatorNull2ComponentMapping<
+            "shared.rich-text",
+            SharedRichTextComponent
+          >
+        | DiscriminatorNull2ComponentMapping<
+            "shared.quote",
+            SharedQuoteComponent
+          >
+        | DiscriminatorNull2ComponentMapping<
+            "shared.media",
+            SharedMediaComponent
+          >
       );
     /** @format date-time */
     createdAt?: string;

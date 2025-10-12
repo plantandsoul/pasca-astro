@@ -1,27 +1,30 @@
 ---
 import PageHeader from '../components/PageHeader/index.tsx';
-import { fetchStrapi } from '../lib/strapi';
+import { pascaApiClient } from '../lib/strapi';
 import SiteLayout from './SiteLayout.astro';
 import type { ComponentProps } from 'astro/types';
 
 type Props = ComponentProps<typeof SiteLayout>;
 
-const globalSettings = await fetchStrapi('global');
+const globalSettings = await pascaApiClient.global.getGlobal()
+	.then(response => response.data.data)
+	.catch(() => undefined)
+;
 
-// TODO(culi): get menu options from Strapi
-const DEFAULT_NAV_ITEMS = [
-  { href: '/about', label: 'about' },
-  { href: '/programs', label: 'programs' },
-  { href: '/blog', label: 'blog' },
-  { href: '/contact', label: 'contact' },
-  { href: '/donate', label: 'donate' },
-];
+const navItems = await pascaApiClient.navbarItems.getNavbarItems()
+	.then(response => response.data.data || [])
+	.then((navItems) => navItems
+	  .sort((itemA, itemB) => (itemA['sort_weight'] || 0) - (itemB['sort_weight'] || 0))
+		.map(item => ({ href: item.internal_url || item.external_url || '', label: item.label }))
+	)
+	.catch(() => [])
+;
 ---
 
 <SiteLayout {...Astro.props}>
   <div id="container">
     <div id="background" />
-		<PageHeader client:load navItems={DEFAULT_NAV_ITEMS} />
+		<PageHeader client:load navItems={navItems} />
     <main>
       <slot />
     </main>

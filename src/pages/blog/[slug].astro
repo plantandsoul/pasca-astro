@@ -1,11 +1,14 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import { fetchStrapi } from '../../lib/strapi';
+import { pascaApiClient } from '../../lib/strapi';
 
 export async function getStaticPaths() {
-  const posts = await fetchStrapi('blog-posts?populate=*');
+  const posts = await pascaApiClient.posts.getPosts({ populate: '*' })
+    .then(response => response.data.data || [])
+    .catch(() => [])
+  ;
 
-  return (posts || []).map((post) => ({
+  return posts.map((post) => ({
     params: { slug: post.slug },
     props: post,
   }));
