@@ -27,3 +27,10 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
+### How to codegen the types
+The types in `src/__generated__/*` are automatically generated with a codegen script. This saves us from having to hand-write the schemas we already write on the backend and reduces risk of falling out of sync.
+
+These types should be updated anytime the backend schemas are modified. The steps to do this are:
+1. Start the backend locally (`npm run develop`).
+2. Run `npm run openapi` in the backend. This lets you serve the [OpenAPI](https://www.openapis.org/) json spec at `localhost:1337/documentation/openapi.json`.
+3. Run `pnpm run codegen` in the front-end. This ingests the OpenAPI spec and automatically generates corresponding typescript types.
