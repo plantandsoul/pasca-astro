@@ -1,5 +1,6 @@
 ---
 import BlocksRenderer from '../../components/BlocksRenderer';
+import DevModeArea from '../../components/DevModeArea.astro';
 import PageLayout from '../../layouts/PageLayout.astro';
 import { pascaApiClient } from '../../lib/strapi';
 
@@ -19,7 +20,7 @@ const post = Astro.props;
 ---
 
 <PageLayout title="blog">
-  <pre>{JSON.stringify(post, null, 2)}</pre>
+  <DevModeArea>{JSON.stringify(post, null, 2)}</DevModeArea>
   <h1>{post.title}</h1>
   <BlocksRenderer blocks={post.blocks || []} />
 </PageLayout>
