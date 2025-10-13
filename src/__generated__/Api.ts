@@ -10,25 +10,19 @@
  * ---------------------------------------------------------------
  */
 
-type AbstractNull = (
-  | SharedSliderComponent
-  | SharedSeoComponent
-  | SharedRichTextComponent
-  | SharedQuoteComponent
-  | SharedMediaComponent
-)[];
+type AbstractNull = SharedWysiwygTextComponent[];
 
 type AbstractNullComponentMapping<Key, Type> = {
   __component: Key;
 } & Type;
 
-type BaseNull = (
-  | SharedSliderComponent
-  | SharedSeoComponent
-  | SharedRichTextComponent
-  | SharedQuoteComponent
-  | SharedMediaComponent
-)[];
+type BaseNull = SharedWysiwygTextComponent[];
+
+type BaseNull1 = SharedWysiwygTextComponent[];
+
+type BaseNull1ComponentMapping<Key, Type> = {
+  __component: Key;
+} & Type;
 
 type BaseNullComponentMapping<Key, Type> = {
   __component: Key;
@@ -61,35 +55,11 @@ export type DeletePostsIdData = number;
 /** @format int64 */
 export type DeleteTopicsIdData = number;
 
-type DiscriminatorNull = (
-  | SharedSliderComponent
-  | SharedSeoComponent
-  | SharedRichTextComponent
-  | SharedQuoteComponent
-  | SharedMediaComponent
-)[];
+type DiscriminatorNull = SharedWysiwygTextComponent[];
 
-type DiscriminatorNull1 = (
-  | SharedSliderComponent
-  | SharedSeoComponent
-  | SharedRichTextComponent
-  | SharedQuoteComponent
-  | SharedMediaComponent
-)[];
+type DiscriminatorNull1 = SharedWysiwygTextComponent[];
 
 type DiscriminatorNull1ComponentMapping<Key, Type> = {
-  __component: Key;
-} & Type;
-
-type DiscriminatorNull2 = (
-  | SharedSliderComponent
-  | SharedSeoComponent
-  | SharedRichTextComponent
-  | SharedQuoteComponent
-  | SharedMediaComponent
-)[];
-
-type DiscriminatorNull2ComponentMapping<Key, Type> = {
   __component: Key;
 } & Type;
 
@@ -489,13 +459,7 @@ export interface GlobalResponse {
   meta?: object;
 }
 
-type InternalNull = (
-  | SharedSliderComponent
-  | SharedSeoComponent
-  | SharedRichTextComponent
-  | SharedQuoteComponent
-  | SharedMediaComponent
-)[];
+type InternalNull = SharedWysiwygTextComponent[];
 
 type InternalNullComponentMapping<Key, Type> = {
   __component: Key;
@@ -709,46 +673,116 @@ export interface NavbarItemResponse {
 
 export interface Page {
   blocks?: AbstractNull &
-    (
-      | AbstractNullComponentMapping<"shared.slider", SharedSliderComponent>
-      | AbstractNullComponentMapping<"shared.seo", SharedSeoComponent>
-      | AbstractNullComponentMapping<
-          "shared.rich-text",
-          SharedRichTextComponent
-        >
-      | AbstractNullComponentMapping<"shared.quote", SharedQuoteComponent>
-      | AbstractNullComponentMapping<"shared.media", SharedMediaComponent>
-    );
+    AbstractNullComponentMapping<
+      "shared.wysiwyg-text",
+      SharedWysiwygTextComponent
+    >;
   /** @format date-time */
   createdAt?: string;
   createdBy?: {
+    blocked?: boolean;
+    /** @format date-time */
+    createdAt?: string;
+    createdBy?: {
+      documentId?: string;
+      id?: number;
+    };
     documentId?: string;
+    /** @format email */
+    email?: string;
+    firstname?: string;
     id?: number;
+    isActive?: boolean;
+    lastname?: string;
+    locale?: string;
+    localizations?: {
+      documentId?: string;
+      id?: number;
+    }[];
+    preferedLanguage?: string;
+    /** @format date-time */
+    publishedAt?: string;
+    registrationToken?: string;
+    resetPasswordToken?: string;
+    roles?: {
+      code?: string;
+      /** @format date-time */
+      createdAt?: string;
+      createdBy?: {
+        documentId?: string;
+        id?: number;
+      };
+      description?: string;
+      documentId?: string;
+      id?: number;
+      locale?: string;
+      localizations?: {
+        documentId?: string;
+        id?: number;
+      }[];
+      name?: string;
+      permissions?: {
+        action?: string;
+        actionParameters?: any;
+        conditions?: any;
+        /** @format date-time */
+        createdAt?: string;
+        createdBy?: {
+          documentId?: string;
+          id?: number;
+        };
+        documentId?: string;
+        id?: number;
+        locale?: string;
+        localizations?: {
+          documentId?: string;
+          id?: number;
+        }[];
+        properties?: any;
+        /** @format date-time */
+        publishedAt?: string;
+        role?: {
+          documentId?: string;
+          id?: number;
+        };
+        subject?: string;
+        /** @format date-time */
+        updatedAt?: string;
+        updatedBy?: {
+          documentId?: string;
+          id?: number;
+        };
+      }[];
+      /** @format date-time */
+      publishedAt?: string;
+      /** @format date-time */
+      updatedAt?: string;
+      updatedBy?: {
+        documentId?: string;
+        id?: number;
+      };
+      users?: {
+        documentId?: string;
+        id?: number;
+      }[];
+    }[];
+    /** @format date-time */
+    updatedAt?: string;
+    updatedBy?: {
+      documentId?: string;
+      id?: number;
+    };
+    username?: string;
   };
   documentId?: string;
   id?: number;
   locale?: string;
   localizations?: {
     blocks?: DiscriminatorNull &
-      (
-        | DiscriminatorNullComponentMapping<
-            "shared.slider",
-            SharedSliderComponent
-          >
-        | DiscriminatorNullComponentMapping<"shared.seo", SharedSeoComponent>
-        | DiscriminatorNullComponentMapping<
-            "shared.rich-text",
-            SharedRichTextComponent
-          >
-        | DiscriminatorNullComponentMapping<
-            "shared.quote",
-            SharedQuoteComponent
-          >
-        | DiscriminatorNullComponentMapping<
-            "shared.media",
-            SharedMediaComponent
-          >
-      );
+      DiscriminatorNullComponentMapping<
+        "shared.wysiwyg-text",
+        SharedWysiwygTextComponent
+      >;
     /** @format date-time */
     createdAt?: string;
     createdBy?: {
@@ -802,13 +836,10 @@ export interface PageListResponse {
 export interface PageRequest {
   data: {
     blocks?: BaseNull &
-      (
-        | BaseNullComponentMapping<"shared.slider", SharedSliderComponent>
-        | BaseNullComponentMapping<"shared.seo", SharedSeoComponent>
-        | BaseNullComponentMapping<"shared.rich-text", SharedRichTextComponent>
-        | BaseNullComponentMapping<"shared.quote", SharedQuoteComponent>
-        | BaseNullComponentMapping<"shared.media", SharedMediaComponent>
-      );
+      BaseNullComponentMapping<
+        "shared.wysiwyg-text",
+        SharedWysiwygTextComponent
+      >;
     locale?: string;
     localizations?: (number | string)[];
     slug: string;
@@ -825,13 +856,7 @@ export interface PermissionsListData {
   permissions?: UsersPermissionsPermissionsTree;
 }
 
-type PolymorphNull = (
-  | SharedSliderComponent
-  | SharedSeoComponent
-  | SharedRichTextComponent
-  | SharedQuoteComponent
-  | SharedMediaComponent
-)[];
+type PolymorphNull = SharedWysiwygTextComponent[];
 
 type PolymorphNullComponentMapping<Key, Type> = {
   __component: Key;
@@ -839,16 +864,10 @@ type PolymorphNullComponentMapping<Key, Type> = {
 
 export interface Post {
   blocks?: PolymorphNull &
-    (
-      | PolymorphNullComponentMapping<"shared.slider", SharedSliderComponent>
-      | PolymorphNullComponentMapping<"shared.seo", SharedSeoComponent>
-      | PolymorphNullComponentMapping<
-          "shared.rich-text",
-          SharedRichTextComponent
-        >
-      | PolymorphNullComponentMapping<"shared.quote", SharedQuoteComponent>
-      | PolymorphNullComponentMapping<"shared.media", SharedMediaComponent>
-    );
+    PolymorphNullComponentMapping<
+      "shared.wysiwyg-text",
+      SharedWysiwygTextComponent
+    >;
   /** @format date-time */
   createdAt?: string;
   createdBy?: {
@@ -883,30 +902,106 @@ export interface Post {
     }[];
     posts?: {
       blocks?: DiscriminatorNull1 &
-        (
-          | DiscriminatorNull1ComponentMapping<
-              "shared.slider",
-              SharedSliderComponent
-            >
-          | DiscriminatorNull1ComponentMapping<"shared.seo", SharedSeoComponent>
-          | DiscriminatorNull1ComponentMapping<
-              "shared.rich-text",
-              SharedRichTextComponent
-            >
-          | DiscriminatorNull1ComponentMapping<
-              "shared.quote",
-              SharedQuoteComponent
-            >
-          | DiscriminatorNull1ComponentMapping<
-              "shared.media",
-              SharedMediaComponent
-            >
-        );
+        DiscriminatorNull1ComponentMapping<
+          "shared.wysiwyg-text",
+          SharedWysiwygTextComponent
+        >;
       /** @format date-time */
       createdAt?: string;
       createdBy?: {
+        blocked?: boolean;
+        /** @format date-time */
+        createdAt?: string;
+        createdBy?: {
+          documentId?: string;
+          id?: number;
+        };
         documentId?: string;
+        /** @format email */
+        email?: string;
+        firstname?: string;
         id?: number;
+        isActive?: boolean;
+        lastname?: string;
+        locale?: string;
+        localizations?: {
+          documentId?: string;
+          id?: number;
+        }[];
+        preferedLanguage?: string;
+        /** @format date-time */
+        publishedAt?: string;
+        registrationToken?: string;
+        resetPasswordToken?: string;
+        roles?: {
+          code?: string;
+          /** @format date-time */
+          createdAt?: string;
+          createdBy?: {
+            documentId?: string;
+            id?: number;
+          };
+          description?: string;
+          documentId?: string;
+          id?: number;
+          locale?: string;
+          localizations?: {
+            documentId?: string;
+            id?: number;
+          }[];
+          name?: string;
+          permissions?: {
+            action?: string;
+            actionParameters?: any;
+            conditions?: any;
+            /** @format date-time */
+            createdAt?: string;
+            createdBy?: {
+              documentId?: string;
+              id?: number;
+            };
+            documentId?: string;
+            id?: number;
+            locale?: string;
+            localizations?: {
+              documentId?: string;
+              id?: number;
+            }[];
+            properties?: any;
+            /** @format date-time */
+            publishedAt?: string;
+            role?: {
+              documentId?: string;
+              id?: number;
+            };
+            subject?: string;
+            /** @format date-time */
+            updatedAt?: string;
+            updatedBy?: {
+              documentId?: string;
+              id?: number;
+            };
+          }[];
+          /** @format date-time */
+          publishedAt?: string;
+          /** @format date-time */
+          updatedAt?: string;
+          updatedBy?: {
+            documentId?: string;
+            id?: number;
+          };
+          users?: {
+            documentId?: string;
+            id?: number;
+          }[];
+        }[];
+        /** @format date-time */
+        updatedAt?: string;
+        updatedBy?: {
+          documentId?: string;
+          id?: number;
+        };
+        username?: string;
       };
       documentId?: string;
       id?: number;
@@ -973,16 +1068,10 @@ export type PostPostsData = PostResponse;
 export interface PostRequest {
   data: {
     blocks?: InternalNull &
-      (
-        | InternalNullComponentMapping<"shared.slider", SharedSliderComponent>
-        | InternalNullComponentMapping<"shared.seo", SharedSeoComponent>
-        | InternalNullComponentMapping<
-            "shared.rich-text",
-            SharedRichTextComponent
-          >
-        | InternalNullComponentMapping<"shared.quote", SharedQuoteComponent>
-        | InternalNullComponentMapping<"shared.media", SharedMediaComponent>
-      );
+      InternalNullComponentMapping<
+        "shared.wysiwyg-text",
+        SharedWysiwygTextComponent
+      >;
     locale?: string;
     localizations?: (number | string)[];
     slug: string;
@@ -1048,73 +1137,7 @@ export interface SendEmailConfirmationCreatePayload {
   email?: string;
 }
 
-export interface SharedMediaComponent {
-  __component?: "shared.media";
-  file?: {
-    alternativeText?: string;
-    caption?: string;
-    /** @format date-time */
-    createdAt?: string;
-    createdBy?: {
-      documentId?: string;
-      id?: number;
-    };
-    documentId?: string;
-    ext?: string;
-    folder?: {
-      documentId?: string;
-      id?: number;
-    };
-    folderPath?: string;
-    formats?: any;
-    hash?: string;
-    height?: number;
-    id?: number;
-    locale?: string;
-    localizations?: {
-      documentId?: string;
-      id?: number;
-    }[];
-    mime?: string;
-    name?: string;
-    previewUrl?: string;
-    provider?: string;
-    provider_metadata?: any;
-    /** @format date-time */
-    publishedAt?: string;
-    related?: {
-      documentId?: string;
-      id?: number;
-    }[];
-    /** @format float */
-    size?: number;
-    /** @format date-time */
-    updatedAt?: string;
-    updatedBy?: {
-      documentId?: string;
-      id?: number;
-    };
-    url?: string;
-    width?: number;
-  };
-  id?: number;
-}
-
-export interface SharedQuoteComponent {
-  __component?: "shared.quote";
-  body?: string;
-  id?: number;
-  title?: string;
-}
-
-export interface SharedRichTextComponent {
-  __component?: "shared.rich-text";
-  body?: string;
-  id?: number;
-}
-
 export interface SharedSeoComponent {
-  __component?: "shared.seo";
   id?: number;
   metaDescription?: string;
   metaTitle?: string;
@@ -1167,223 +1190,9 @@ export interface SharedSeoComponent {
   };
 }
 
-export interface SharedSliderComponent {
-  __component?: "shared.slider";
-  files?: {
-    alternativeText?: string;
-    caption?: string;
-    /** @format date-time */
-    createdAt?: string;
-    createdBy?: {
-      documentId?: string;
-      id?: number;
-    };
-    documentId?: string;
-    ext?: string;
-    folder?: {
-      children?: {
-        documentId?: string;
-        id?: number;
-      }[];
-      /** @format date-time */
-      createdAt?: string;
-      createdBy?: {
-        documentId?: string;
-        id?: number;
-      };
-      documentId?: string;
-      files?: {
-        alternativeText?: string;
-        caption?: string;
-        /** @format date-time */
-        createdAt?: string;
-        createdBy?: {
-          blocked?: boolean;
-          /** @format date-time */
-          createdAt?: string;
-          createdBy?: {
-            documentId?: string;
-            id?: number;
-          };
-          documentId?: string;
-          /** @format email */
-          email?: string;
-          firstname?: string;
-          id?: number;
-          isActive?: boolean;
-          lastname?: string;
-          locale?: string;
-          localizations?: {
-            documentId?: string;
-            id?: number;
-          }[];
-          preferedLanguage?: string;
-          /** @format date-time */
-          publishedAt?: string;
-          registrationToken?: string;
-          resetPasswordToken?: string;
-          roles?: {
-            code?: string;
-            /** @format date-time */
-            createdAt?: string;
-            createdBy?: {
-              documentId?: string;
-              id?: number;
-            };
-            description?: string;
-            documentId?: string;
-            id?: number;
-            locale?: string;
-            localizations?: {
-              documentId?: string;
-              id?: number;
-            }[];
-            name?: string;
-            permissions?: {
-              action?: string;
-              actionParameters?: any;
-              conditions?: any;
-              /** @format date-time */
-              createdAt?: string;
-              createdBy?: {
-                documentId?: string;
-                id?: number;
-              };
-              documentId?: string;
-              id?: number;
-              locale?: string;
-              localizations?: {
-                documentId?: string;
-                id?: number;
-              }[];
-              properties?: any;
-              /** @format date-time */
-              publishedAt?: string;
-              role?: {
-                documentId?: string;
-                id?: number;
-              };
-              subject?: string;
-              /** @format date-time */
-              updatedAt?: string;
-              updatedBy?: {
-                documentId?: string;
-                id?: number;
-              };
-            }[];
-            /** @format date-time */
-            publishedAt?: string;
-            /** @format date-time */
-            updatedAt?: string;
-            updatedBy?: {
-              documentId?: string;
-              id?: number;
-            };
-            users?: {
-              documentId?: string;
-              id?: number;
-            }[];
-          }[];
-          /** @format date-time */
-          updatedAt?: string;
-          updatedBy?: {
-            documentId?: string;
-            id?: number;
-          };
-          username?: string;
-        };
-        documentId?: string;
-        ext?: string;
-        folder?: {
-          documentId?: string;
-          id?: number;
-        };
-        folderPath?: string;
-        formats?: any;
-        hash?: string;
-        height?: number;
-        id?: number;
-        locale?: string;
-        localizations?: {
-          documentId?: string;
-          id?: number;
-        }[];
-        mime?: string;
-        name?: string;
-        previewUrl?: string;
-        provider?: string;
-        provider_metadata?: any;
-        /** @format date-time */
-        publishedAt?: string;
-        related?: {
-          documentId?: string;
-          id?: number;
-        }[];
-        /** @format float */
-        size?: number;
-        /** @format date-time */
-        updatedAt?: string;
-        updatedBy?: {
-          documentId?: string;
-          id?: number;
-        };
-        url?: string;
-        width?: number;
-      }[];
-      id?: number;
-      locale?: string;
-      localizations?: {
-        documentId?: string;
-        id?: number;
-      }[];
-      name?: string;
-      parent?: {
-        documentId?: string;
-        id?: number;
-      };
-      path?: string;
-      pathId?: number;
-      /** @format date-time */
-      publishedAt?: string;
-      /** @format date-time */
-      updatedAt?: string;
-      updatedBy?: {
-        documentId?: string;
-        id?: number;
-      };
-    };
-    folderPath?: string;
-    formats?: any;
-    hash?: string;
-    height?: number;
-    id?: number;
-    locale?: string;
-    localizations?: {
-      documentId?: string;
-      id?: number;
-    }[];
-    mime?: string;
-    name?: string;
-    previewUrl?: string;
-    provider?: string;
-    provider_metadata?: any;
-    /** @format date-time */
-    publishedAt?: string;
-    related?: {
-      documentId?: string;
-      id?: number;
-    }[];
-    /** @format float */
-    size?: number;
-    /** @format date-time */
-    updatedAt?: string;
-    updatedBy?: {
-      documentId?: string;
-      id?: number;
-    };
-    url?: string;
-    width?: number;
-  }[];
+export interface SharedWysiwygTextComponent {
+  __component?: "shared.wysiwyg-text";
+  body?: string;
   id?: number;
 }
 
@@ -1402,26 +1211,11 @@ export interface Topic {
     id?: number;
   }[];
   posts?: {
-    blocks?: DiscriminatorNull2 &
-      (
-        | DiscriminatorNull2ComponentMapping<
-            "shared.slider",
-            SharedSliderComponent
-          >
-        | DiscriminatorNull2ComponentMapping<"shared.seo", SharedSeoComponent>
-        | DiscriminatorNull2ComponentMapping<
-            "shared.rich-text",
-            SharedRichTextComponent
-          >
-        | DiscriminatorNull2ComponentMapping<
-            "shared.quote",
-            SharedQuoteComponent
-          >
-        | DiscriminatorNull2ComponentMapping<
-            "shared.media",
-            SharedMediaComponent
-          >
-      );
+    blocks?: BaseNull1 &
+      BaseNull1ComponentMapping<
+        "shared.wysiwyg-text",
+        SharedWysiwygTextComponent
+      >;
     /** @format date-time */
     createdAt?: string;
     createdBy?: {
@@ -1444,8 +1238,99 @@ export interface Topic {
       /** @format date-time */
       createdAt?: string;
       createdBy?: {
+        blocked?: boolean;
+        /** @format date-time */
+        createdAt?: string;
+        createdBy?: {
+          documentId?: string;
+          id?: number;
+        };
         documentId?: string;
+        /** @format email */
+        email?: string;
+        firstname?: string;
         id?: number;
+        isActive?: boolean;
+        lastname?: string;
+        locale?: string;
+        localizations?: {
+          documentId?: string;
+          id?: number;
+        }[];
+        preferedLanguage?: string;
+        /** @format date-time */
+        publishedAt?: string;
+        registrationToken?: string;
+        resetPasswordToken?: string;
+        roles?: {
+          code?: string;
+          /** @format date-time */
+          createdAt?: string;
+          createdBy?: {
+            documentId?: string;
+            id?: number;
+          };
+          description?: string;
+          documentId?: string;
+          id?: number;
+          locale?: string;
+          localizations?: {
+            documentId?: string;
+            id?: number;
+          }[];
+          name?: string;
+          permissions?: {
+            action?: string;
+            actionParameters?: any;
+            conditions?: any;
+            /** @format date-time */
+            createdAt?: string;
+            createdBy?: {
+              documentId?: string;
+              id?: number;
+            };
+            documentId?: string;
+            id?: number;
+            locale?: string;
+            localizations?: {
+              documentId?: string;
+              id?: number;
+            }[];
+            properties?: any;
+            /** @format date-time */
+            publishedAt?: string;
+            role?: {
+              documentId?: string;
+              id?: number;
+            };
+            subject?: string;
+            /** @format date-time */
+            updatedAt?: string;
+            updatedBy?: {
+              documentId?: string;
+              id?: number;
+            };
+          }[];
+          /** @format date-time */
+          publishedAt?: string;
+          /** @format date-time */
+          updatedAt?: string;
+          updatedBy?: {
+            documentId?: string;
+            id?: number;
+          };
+          users?: {
+            documentId?: string;
+            id?: number;
+          }[];
+        }[];
+        /** @format date-time */
+        updatedAt?: string;
+        updatedBy?: {
+          documentId?: string;
+          id?: number;
+        };
+        username?: string;
       };
       documentId?: string;
       id?: number;

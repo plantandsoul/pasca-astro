@@ -1,6 +1,7 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
 import { pascaApiClient } from '../lib/strapi';
+import PageLayout from '../layouts/PageLayout.astro';
+import BlocksRenderer from '../components/BlocksRenderer';
 
 export async function getStaticPaths() {
   const pages = await pascaApiClient.pages.getPages({ populate: '*' })
@@ -19,4 +20,6 @@ const page = Astro.props;
 
 <PageLayout title="blog">
   <pre>{JSON.stringify(page, null, 2)}</pre>
+  <h1>{page.title}</h1>
+  <BlocksRenderer blocks={page.blocks || []} />
 </PageLayout>
