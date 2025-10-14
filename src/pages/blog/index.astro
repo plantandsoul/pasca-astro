@@ -1,8 +1,11 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import { fetchStrapi } from '../../lib/strapi';
+import { pascaApiClient } from '../../lib/strapi';
 
-const posts = await fetchStrapi('blog-posts');
+const posts = await pascaApiClient.posts.getPosts({ populate: '*' })
+  .then(response => response.data.data)
+  .catch(() => [])
+;
 ---
 
 <PageLayout title="blog">

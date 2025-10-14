@@ -4,16 +4,6 @@ import styles from './index.module.css';
 import { useCheckForOverflow } from './useCheckForOverflow';
 import clsx from 'clsx';
 
-type NavItem = {
-  href: string;
-  label: string;
-  parentHref?: string; // TODO(culi): support nested nav items
-}
-
-type Props = {
-  navItems: Array<NavItem>;
-};
-
 type HamburgerProps = {
   className?: string;
   popoverId: string;
@@ -24,7 +14,15 @@ const Hamburger = ({ className, popoverId }: HamburgerProps) => (
   </button>
 );
 
-const PageHeader = ({ navItems }: Props) => {
+type NavItem = {
+  href: string;
+  label: string;
+  parentHref?: string; // TODO(culi): support nested nav items
+}
+type PageHeaderProps = {
+  navItems: Array<NavItem>;
+};
+const PageHeader = ({ navItems }: PageHeaderProps) => {
   const navDesktopId = useId();
   const [headerRef, isOverflowing,] = useCheckForOverflow(navDesktopId);
 
@@ -39,8 +37,8 @@ const PageHeader = ({ navItems }: Props) => {
         <img src={pascaLogo.src} width="95" height="95" alt="PASCA homepage" />
       </a>
       <div className={styles.title}>
-        <span>Plant</span>
-        <span>& <span>Soul</span></span>
+        <span>Plant{' '}</span>
+        <span>& <span>Soul{' '}</span></span>
         <span>California</span>
       </div>
       <nav id={navDesktopId} className={styles.navDesktop}>

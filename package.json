@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "codegen": "npx swagger-typescript-api generate --path http://localhost:1337/documentation/openapi.json --output 'src/__generated__/' --clean-output --extract-request-body --extract-response-body --responses --sort-routes --sort-types --union-enums",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",

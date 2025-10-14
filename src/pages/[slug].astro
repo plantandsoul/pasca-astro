@@ -1,0 +1,26 @@
+---
+import { pascaApiClient } from '../lib/strapi';
+import PageLayout from '../layouts/PageLayout.astro';
+import BlocksRenderer from '../components/BlocksRenderer';
+import DevModeArea from '../components/DevModeArea.astro';
+
+export async function getStaticPaths() {
+  const pages = await pascaApiClient.pages.getPages({ populate: '*' })
+    .then(response => response.data.data || [])
+    .catch(() => [])
+  ;
+
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: page,
+  }));
+};
+
+const page = Astro.props;
+---
+
+<PageLayout title="blog">
+  <DevModeArea>{JSON.stringify(page, null, 2).trim()}</DevModeArea>
+  <h1>{page.title}</h1>
+  <BlocksRenderer blocks={page.blocks || []} />
+</PageLayout>
