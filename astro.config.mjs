@@ -8,5 +8,8 @@ import netlify from '@astrojs/netlify';
 export default defineConfig({
   adapter: netlify(),
   integrations: [react(), sitemap()],
-  site: 'https://pasca.org',
+  image: {
+    domains: ['https://superb-canvas-e9f287e8f1.strapiapp.com']
+  },
+  site: 'https://plantandsoul.org',
 });

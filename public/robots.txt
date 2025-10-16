@@ -4,4 +4,4 @@
 # For more information about the robots.txt standard, see:
 # https://www.robotstxt.org/robotstxt.html
 
-Sitemap: https://pasca.org/sitemap-index.xml
+Sitemap: https://plantandsoul.org/sitemap-index.xml
