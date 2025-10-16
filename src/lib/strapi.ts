@@ -1,9 +1,9 @@
 import { Api } from '../__generated__/Api';
 
-const { STRAPI_URL, STRAPI_TOKEN } = import.meta.env;
+const { STRAPI_API_URL, STRAPI_TOKEN } = import.meta.env;
 
 export const pascaApiClient = new Api({
-  baseUrl: STRAPI_URL,
+  baseUrl: STRAPI_API_URL,
   baseApiParams: {
     format: 'json',
     headers: {
