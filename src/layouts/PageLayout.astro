@@ -36,6 +36,16 @@ const navItems = await pascaApiClient.navbarItems.getNavbarItems()
 				<br />
         {globalSettings?.streetAddress2}
       </p>
+			<p class="powered-by-strapi">
+				<span>made with soul ཐིཋྀ</span>
+				<!-- we get a discount for having this badge on our site -->
+				<!-- https://www.strapi.io/cloud-discounts -->
+				<a
+					href="https://strapi.link/nfp"
+					rel="noopener noreferrer"
+					target="_blank"
+				>powered by Strapi</a>
+			</p>
     </footer>
   </div>
 </SiteLayout>
@@ -71,6 +81,26 @@ const navItems = await pascaApiClient.navbarItems.getNavbarItems()
 
 		& > footer {
 			border-top: 5px solid var(--clr-line);
+			display: flex;
+			 justify-content: space-between;
+
+			& .powered-by-strapi {
+				display: flex;
+				 flex-direction: column;
+				 justify-content: space-between;
+
+				& a {
+					font-style: italic;
+					color: unset;
+				  text-decoration: none;
+					opacity: 0.6;
+					transition: opacity var(--dur-medium) ease-in-out;
+
+					&:hover {
+						opacity: 1;
+					}
+				}
+			}
 		}
 	}
 </style>
