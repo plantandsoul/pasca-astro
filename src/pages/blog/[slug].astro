@@ -7,7 +7,10 @@ import { pascaApiClient } from '../../lib/strapi';
 export async function getStaticPaths() {
   const posts = await pascaApiClient.posts.getPosts({ populate: '*' })
     .then(response => response.data.data || [])
-    .catch(() => [])
+    .catch(reason => {
+      console.error('ERROR', reason)
+      return []
+    })
   ;
 
   return posts.map((post) => ({

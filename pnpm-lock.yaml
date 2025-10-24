@@ -23,6 +23,15 @@ importers:
       '@fullcalendar/daygrid':
         specifier: ^6.1.19
         version: 6.1.19(@fullcalendar/core@6.1.19)
+      '@fullcalendar/google-calendar':
+        specifier: ^6.1.19
+        version: 6.1.19(@fullcalendar/core@6.1.19)
+      '@fullcalendar/icalendar':
+        specifier: ^6.1.19
+        version: 6.1.19(@fullcalendar/core@6.1.19)(ical.js@2.2.1)
+      '@fullcalendar/list':
+        specifier: ^6.1.19
+        version: 6.1.19(@fullcalendar/core@6.1.19)
       '@fullcalendar/react':
         specifier: ^6.1.19
         version: 6.1.19(@fullcalendar/core@6.1.19)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -44,6 +53,9 @@ importers:
       react-dom:
         specifier: ^19.1.1
         version: 19.1.1(react@19.1.1)
+      ts-ics:
+        specifier: ^2.4.0
+        version: 2.4.0
 
 packages:
 
@@ -514,6 +526,22 @@ packages:
 
   '@fullcalendar/daygrid@6.1.19':
     resolution: {integrity: sha512-IAAfnMICnVWPjpT4zi87i3FEw0xxSza0avqY/HedKEz+l5MTBYvCDPOWDATpzXoLut3aACsjktIyw9thvIcRYQ==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.19
+
+  '@fullcalendar/google-calendar@6.1.19':
+    resolution: {integrity: sha512-FjA8l4GmudRtNQqQfZ34RzDrLwzL74UGiTU37ghSIHvK7sCTMwyefPq+u/oQznA+2vur8u9fkqpFSbwe8r0AWQ==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.19
+
+  '@fullcalendar/icalendar@6.1.19':
+    resolution: {integrity: sha512-uaJnTP99cM2ZiFmYaSLfayX9TmF0DklIf2SpgwMDCMEqtNYm+TbCotDUrfMDWVFYPr4uCHk0TjlM5mS3U3wB9g==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.19
+      ical.js: ^1.4.0
+
+  '@fullcalendar/list@6.1.19':
+    resolution: {integrity: sha512-knZHpAVF0LbzZpSJSUmLUUzF0XlU/MRGK+Py2s0/mP93bCtno1k2L3XPs/kzh528hSjehwLm89RgKTSfW1P6cA==}
     peerDependencies:
       '@fullcalendar/core': ~6.1.19
 
@@ -1027,6 +1055,9 @@ packages:
 
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
+
+  '@standard-schema/spec@1.0.0':
+    resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
 
   '@swc/helpers@0.5.17':
     resolution: {integrity: sha512-5IKx/Y13RsYd+sauPb2x+U/xZikHjolzfuDgTAl/Tdf3Q8rslRvC19NKDLgAJQ6wsqADk10ntlv08nPFw/gO/A==}
@@ -2011,6 +2042,9 @@ packages:
   human-signals@5.0.0:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
+
+  ical.js@2.2.1:
+    resolution: {integrity: sha512-yK/UlPbEs316igb/tjRgbFA8ZV75rCsBJp/hWOatpyaPNlgw0dGDmU+FoicOcwX4xXkeXOkYiOmCqNPFpNPkQg==}
 
   ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
@@ -3076,6 +3110,9 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
+  ts-ics@2.4.0:
+    resolution: {integrity: sha512-Tguo+7W/swxTw8/Fxv4zPBqiHw/i1ohg0aCWeY50miwdwFGC7TCWcOUuqaeag5EdnaX57zn1qrqERsc4A+4j1A==}
+
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
     engines: {node: ^18 || >=20}
@@ -3874,6 +3911,19 @@ snapshots:
     dependencies:
       '@fullcalendar/core': 6.1.19
 
+  '@fullcalendar/google-calendar@6.1.19(@fullcalendar/core@6.1.19)':
+    dependencies:
+      '@fullcalendar/core': 6.1.19
+
+  '@fullcalendar/icalendar@6.1.19(@fullcalendar/core@6.1.19)(ical.js@2.2.1)':
+    dependencies:
+      '@fullcalendar/core': 6.1.19
+      ical.js: 2.2.1
+
+  '@fullcalendar/list@6.1.19(@fullcalendar/core@6.1.19)':
+    dependencies:
+      '@fullcalendar/core': 6.1.19
+
   '@fullcalendar/react@6.1.19(@fullcalendar/core@6.1.19)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@fullcalendar/core': 6.1.19
@@ -4500,6 +4550,8 @@ snapshots:
       '@types/hast': 3.0.4
 
   '@shikijs/vscode-textmate@10.0.2': {}
+
+  '@standard-schema/spec@1.0.0': {}
 
   '@swc/helpers@0.5.17':
     dependencies:
@@ -5705,6 +5757,8 @@ snapshots:
       - supports-color
 
   human-signals@5.0.0: {}
+
+  ical.js@2.2.1: {}
 
   ieee754@1.2.1: {}
 
@@ -7032,6 +7086,10 @@ snapshots:
   ts-api-utils@2.1.0(typescript@5.9.2):
     dependencies:
       typescript: 5.9.2
+
+  ts-ics@2.4.0:
+    dependencies:
+      '@standard-schema/spec': 1.0.0
 
   tsconfck@3.1.6(typescript@5.9.2):
     optionalDependencies:

@@ -4,7 +4,10 @@ import { pascaApiClient } from '../../lib/strapi';
 
 const posts = await pascaApiClient.posts.getPosts({ populate: '*' })
   .then(response => response.data.data)
-  .catch(() => [])
+    .catch(reason => {
+      console.error('ERROR', reason)
+      return []
+    })
 ;
 ---
 

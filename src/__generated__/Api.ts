@@ -12,17 +12,17 @@
 
 type AbstractNull = SharedWysiwygTextComponent[];
 
+type AbstractNull1 = SharedWysiwygTextComponent[];
+
+type AbstractNull1ComponentMapping<Key, Type> = {
+  __component: Key;
+} & Type;
+
 type AbstractNullComponentMapping<Key, Type> = {
   __component: Key;
 } & Type;
 
 type BaseNull = SharedWysiwygTextComponent[];
-
-type BaseNull1 = SharedWysiwygTextComponent[];
-
-type BaseNull1ComponentMapping<Key, Type> = {
-  __component: Key;
-} & Type;
 
 type BaseNullComponentMapping<Key, Type> = {
   __component: Key;
@@ -56,12 +56,6 @@ export type DeletePostsIdData = number;
 export type DeleteTopicsIdData = number;
 
 type DiscriminatorNull = SharedWysiwygTextComponent[];
-
-type DiscriminatorNull1 = SharedWysiwygTextComponent[];
-
-type DiscriminatorNull1ComponentMapping<Key, Type> = {
-  __component: Key;
-} & Type;
 
 type DiscriminatorNullComponentMapping<Key, Type> = {
   __component: Key;
@@ -460,6 +454,12 @@ export interface GlobalResponse {
 }
 
 type InternalNull = SharedWysiwygTextComponent[];
+
+type InternalNull1 = SharedWysiwygTextComponent[];
+
+type InternalNull1ComponentMapping<Key, Type> = {
+  __component: Key;
+} & Type;
 
 type InternalNullComponentMapping<Key, Type> = {
   __component: Key;
@@ -901,8 +901,8 @@ export interface Post {
       id?: number;
     }[];
     posts?: {
-      blocks?: DiscriminatorNull1 &
-        DiscriminatorNull1ComponentMapping<
+      blocks?: AbstractNull1 &
+        AbstractNull1ComponentMapping<
           "shared.wysiwyg-text",
           SharedWysiwygTextComponent
         >;
@@ -1211,8 +1211,8 @@ export interface Topic {
     id?: number;
   }[];
   posts?: {
-    blocks?: BaseNull1 &
-      BaseNull1ComponentMapping<
+    blocks?: InternalNull1 &
+      InternalNull1ComponentMapping<
         "shared.wysiwyg-text",
         SharedWysiwygTextComponent
       >;
