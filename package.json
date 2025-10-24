@@ -15,12 +15,16 @@
     "@astrojs/sitemap": "^3.6.0",
     "@fullcalendar/core": "^6.1.19",
     "@fullcalendar/daygrid": "^6.1.19",
+    "@fullcalendar/google-calendar": "^6.1.19",
+    "@fullcalendar/icalendar": "^6.1.19",
+    "@fullcalendar/list": "^6.1.19",
     "@fullcalendar/react": "^6.1.19",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "astro": "^5.13.7",
     "clsx": "^2.1.1",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "ts-ics": "^2.4.0"
   }
 }
